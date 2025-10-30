@@ -6,9 +6,12 @@ import base64
 from datetime import datetime
 import urllib.parse
 
-# Initialize data
+# Initialize data - MODIFIED FOR RENDER
 def init_data():
-    if not os.path.exists('smartcampus_data.json'):
+    # On Render, use absolute path for data file
+    data_file = os.path.join(os.path.dirname(__file__), 'smartcampus_data.json')
+    
+    if not os.path.exists(data_file):
         data = {
             'users': {
                 '25CS001': {'password': 'smartcampus123', 'name': 'Alex Johnson', 'password_changed': False},
@@ -22,60 +25,26 @@ def init_data():
                 '25CS009': {'password': 'smartcampus123', 'name': 'Robert Miller', 'password_changed': False},
                 '25CS010': {'password': 'smartcampus123', 'name': 'Olivia Anderson', 'password_changed': False}
             },
-            'lost_items': [
-                {
-                    'id': '1', 'user_id': '25CS001', 'user_name': 'Alex Johnson',
-                    'type': 'laptop', 'description': 'Silver MacBook Pro 13" with mountain sticker on cover',
-                    'location': 'Library - 2nd floor', 'date': '2024-01-15', 'status': 'active',
-                    'created_at': '2024-01-15T10:00:00',
-                    'image': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDIwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgcng9IjUiIGZpbGw9IiMzNDk4REIiIGZpbGwtb3BhY2l0eT0iMC4xIi8+CjxyZWN0IHg9IjIwIiB5PSIzMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI2MCIgcng9IjMiIGZpbGw9IiMzNDk4REIiIGZpbGwtb3BhY2l0eT0iMC4yIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMzNDk4REIiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCI+TEFQVE9QPC90ZXh0Pgo8L3N2Zz4K'
-                }
-            ],
-            'found_items': [
-                {
-                    'id': '2', 'user_id': '25CS005', 'user_name': 'James Brown', 
-                    'type': 'laptop', 'description': 'Silver laptop with mountain sticker, found in computer lab',
-                    'location': 'Computer Lab B', 'date': '2024-01-15', 'status': 'active',
-                    'created_at': '2024-01-15T14:00:00',
-                    'image': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDIwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgcng9IjUiIGZpbGw9IiMyZWNjNzEiIGZpbGwtb3BhY2l0eT0iMC4xIi8+CjxyZWN0IHg9IjIwIiB5PSIzMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI2MCIgcng9IjMiIGZpbGw9IiMyZWNjNzEiIGZpbGwtb3BhY2l0eT0iMC4yIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMyZWNjNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCI+TEFQVE9QPC90ZXh0Pgo8L3N2Zz4K'
-                }
-            ],
-            'chats': {
-                'chat_1_2': {
-                    'messages': [
-                        {
-                            'id': '1', 'sender_id': '25CS005', 'sender_name': 'James Brown',
-                            'message': 'Hello! I found a silver laptop in the computer lab. Does it belong to you?',
-                            'timestamp': '2024-01-15T14:30:00'
-                        },
-                        {
-                            'id': '2', 'sender_id': '25CS001', 'sender_name': 'Alex Johnson', 
-                            'message': 'Yes! I lost my MacBook Pro. Does it have a mountain sticker?',
-                            'timestamp': '2024-01-15T14:35:00'
-                        },
-                        {
-                            'id': '3', 'sender_id': '25CS005', 'sender_name': 'James Brown',
-                            'message': 'Yes, it has a mountain sticker! Where can we meet for you to collect it?',
-                            'timestamp': '2024-01-15T14:40:00'
-                        }
-                    ]
-                }
-            },
+            'lost_items': [],
+            'found_items': [],
+            'chats': {},
             'password_change_attempts': {}
         }
-        with open('smartcampus_data.json', 'w') as f:
+        with open(data_file, 'w') as f:
             json.dump(data, f, indent=2)
 
-# Load data from file
+# Load data from file - MODIFIED FOR RENDER
 def load_data():
-    if os.path.exists('smartcampus_data.json'):
-        with open('smartcampus_data.json', 'r') as f:
+    data_file = os.path.join(os.path.dirname(__file__), 'smartcampus_data.json')
+    if os.path.exists(data_file):
+        with open(data_file, 'r') as f:
             return json.load(f)
     return {'users': {}, 'lost_items': [], 'found_items': [], 'chats': {}, 'password_change_attempts': {}}
 
-# Save data to file
+# Save data to file - MODIFIED FOR RENDER
 def save_data(data):
-    with open('smartcampus_data.json', 'w') as f:
+    data_file = os.path.join(os.path.dirname(__file__), 'smartcampus_data.json')
+    with open(data_file, 'w') as f:
         json.dump(data, f, indent=2)
 
 # Default item images (SVG as base64)
@@ -1420,12 +1389,14 @@ class SmartCampusHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(response_data).encode())
 
-def main():
+def def main():
     init_data()
-    PORT = 8000
-    with socketserver.TCPServer(("", PORT), SmartCampusHandler) as httpd:
-        print("🚀 SmartCampus Lost & Found Portal Started!")
-        print("📍 Access: http://localhost:8000")
+    PORT = int(os.environ.get('PORT', 8000))
+    
+    # Use 0.0.0.0 to accept connections from any IP
+    with socketserver.TCPServer(("0.0.0.0", PORT), SmartCampusHandler) as httpd:
+        print(f"🚀 SmartCampus Lost & Found Portal Started!")
+        print(f"📍 Server running on port {PORT}")
         print("👤 Demo Users: 25CS001 to 25CS010")
         print("🔑 Password: smartcampus123")
         print("📸 Features: Image Upload • Smart Matching • Live Chat • Password Management")
