@@ -1,2 +1,2 @@
 # requirements.txt
-No dependencies needed for basic Python HTTP server
+# (this file is intentionally left blank - no dependencies needed)
