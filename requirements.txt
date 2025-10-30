@@ -1,2 +1,1 @@
-# No external dependencies needed
-# Built-in Python modules only
+gunicorn==21.2.0
