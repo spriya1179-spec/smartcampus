@@ -1,0 +1,119 @@
+{
+  "users": {
+    "25CS001": {
+      "password": "smartcampus123",
+      "name": "Alex Johnson",
+      "password_changed": false
+    },
+    "25CS002": {
+      "password": "smartcampus123",
+      "name": "Maria Garcia",
+      "password_changed": false
+    },
+    "25CS003": {
+      "password": "smartcampus123",
+      "name": "David Smith",
+      "password_changed": false
+    },
+    "25CS004": {
+      "password": "smartcampus123",
+      "name": "Sarah Williams",
+      "password_changed": false
+    },
+    "25CS005": {
+      "password": "smartcampus123",
+      "name": "James Brown",
+      "password_changed": false
+    },
+    "25CS006": {
+      "password": "smartcampus123",
+      "name": "Lisa Davis",
+      "password_changed": false
+    },
+    "25CS007": {
+      "password": "smartcampus123",
+      "name": "Michael Wilson",
+      "password_changed": false
+    },
+    "25CS008": {
+      "password": "smartcampus123",
+      "name": "Emma Taylor",
+      "password_changed": false
+    },
+    "25CS009": {
+      "password": "smartcampus123",
+      "name": "Robert Miller",
+      "password_changed": false
+    },
+    "25CS010": {
+      "password": "smartcampus123",
+      "name": "Olivia Anderson",
+      "password_changed": false
+    }
+  },
+  "lost_items": [
+    {
+      "id": "1",
+      "user_id": "25CS001",
+      "user_name": "Alex Johnson",
+      "type": "laptop",
+      "description": "Silver MacBook Pro 13\" with mountain sticker on cover",
+      "location": "Library - 2nd floor",
+      "date": "2024-01-15",
+      "status": "active",
+      "created_at": "2024-01-15T10:00:00"
+    },
+    {
+      "id": "3",
+      "user_id": "25CS001",
+      "user_name": "Alex Johnson",
+      "type": "phone",
+      "description": "apple 13 pro max",
+      "location": "a block",
+      "date": "2025-10-29",
+      "status": "active",
+      "created_at": "2025-10-30T02:44:40.594444"
+    }
+  ],
+  "found_items": [
+    {
+      "id": "2",
+      "user_id": "25CS005",
+      "user_name": "James Brown",
+      "type": "laptop",
+      "description": "Silver laptop with mountain sticker, found in computer lab",
+      "location": "Computer Lab B",
+      "date": "2024-01-15",
+      "status": "active",
+      "created_at": "2024-01-15T14:00:00"
+    }
+  ],
+  "chats": {
+    "chat_1_2": {
+      "messages": [
+        {
+          "id": "1",
+          "sender_id": "25CS005",
+          "sender_name": "James Brown",
+          "message": "Hello! I found a silver laptop in the computer lab. Does it belong to you?",
+          "timestamp": "2024-01-15T14:30:00"
+        },
+        {
+          "id": "2",
+          "sender_id": "25CS001",
+          "sender_name": "Alex Johnson",
+          "message": "Yes! I lost my MacBook Pro. Does it have a mountain sticker?",
+          "timestamp": "2024-01-15T14:35:00"
+        },
+        {
+          "id": "3",
+          "sender_id": "25CS005",
+          "sender_name": "James Brown",
+          "message": "Yes, it has a mountain sticker! Where can we meet for you to collect it?",
+          "timestamp": "2024-01-15T14:40:00"
+        }
+      ]
+    }
+  },
+  "password_change_attempts": {}
+}

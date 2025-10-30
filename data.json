@@ -1,0 +1,81 @@
+{
+  "users": {
+    "25CS001": {
+      "password": "smartcampus123",
+      "name": "Alex Johnson",
+      "password_changed": false
+    },
+    "25CS002": {
+      "password": "smartcampus123",
+      "name": "Maria Garcia",
+      "password_changed": false
+    },
+    "25CS003": {
+      "password": "smartcampus123",
+      "name": "David Smith",
+      "password_changed": false
+    },
+    "25CS004": {
+      "password": "smartcampus123",
+      "name": "Sarah Williams",
+      "password_changed": false
+    },
+    "25CS005": {
+      "password": "smartcampus123",
+      "name": "James Brown",
+      "password_changed": false
+    },
+    "25CS006": {
+      "password": "smartcampus123",
+      "name": "Lisa Davis",
+      "password_changed": false
+    },
+    "25CS007": {
+      "password": "smartcampus123",
+      "name": "Michael Wilson",
+      "password_changed": false
+    },
+    "25CS008": {
+      "password": "smartcampus123",
+      "name": "Emma Taylor",
+      "password_changed": false
+    },
+    "25CS009": {
+      "password": "smartcampus123",
+      "name": "Robert Miller",
+      "password_changed": false
+    },
+    "25CS010": {
+      "password": "smartcampus123",
+      "name": "Olivia Anderson",
+      "password_changed": false
+    }
+  },
+  "lost_items": [
+    {
+      "id": "1",
+      "user_id": "25CS001",
+      "user_name": "Alex Johnson",
+      "type": "laptop",
+      "description": "Silver MacBook Pro 13\" with mountain sticker",
+      "location": "Library",
+      "date": "2024-01-15",
+      "status": "active"
+    }
+  ],
+  "found_items": [
+    {
+      "id": "2",
+      "user_id": "25CS005",
+      "user_name": "James Brown",
+      "type": "laptop",
+      "description": "Silver laptop with mountain sticker",
+      "location": "Computer Lab",
+      "date": "2024-01-15",
+      "status": "active"
+    }
+  ],
+  "chats": {},
+  "password_change_attempts": {},
+  "sessions": {}
+}
