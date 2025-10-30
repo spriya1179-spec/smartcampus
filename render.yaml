@@ -3,8 +3,8 @@ services:
     name: smartcampus-lost-found
     env: python
     plan: free
-    buildCommand: ""
-    startCommand: python index.py
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python index.py"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9
+        value: 3.9.0
