@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: smartcampus-lost-found
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python index.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9
